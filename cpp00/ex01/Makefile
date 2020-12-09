@@ -6,7 +6,7 @@
 #    By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/27 17:46:05 by charmstr          #+#    #+#              #
-#    Updated: 2020/12/09 04:57:04 by charmstr         ###   ########.fr        #
+#    Updated: 2020/12/09 22:13:28 by charmstr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,8 @@ endif
 ############################ PATHS ############################################
 ###############################################################################
 OBJ_PATH = ./objects/
-SRC_PATH = ./sources/
-INCLUDE_PATH_PROJECT = ./includes/
+SRC_PATH = ./
+INCLUDE_PATH_PROJECT = ./
 ###############################################################################
 ###############################################################################
 
@@ -99,12 +99,8 @@ OBJECTS_BG = \033[48;5;11m
 
 all: $(NAME)
 
-#| silent
 
-silent:
-	@:
-
-.PHONY: all clean fclean re break_implicit_r
+.PHONY: all clean fclean re
 
 $(OBJ_PATH):
 	@mkdir -p $(OBJ_PATH)
@@ -119,8 +115,6 @@ $(OBJ): $(OBJ_PATH)%.o: $(SRC_PATH)%.cpp $(DEPS) | $(OBJ_PATH)
 	@$(CXX) $(CXXFLAGS) $(IFLAGS) -c $< -o $@
 
 bonus:
-
-break_implicit_r:
 
 clean:
 	@echo "\t\t$(REMOVE_FG)deleting $(OBJECTS_BG)$(BLACK_FG) $(OBJ_PATH) $(BLACK_BG)$(REMOVE_FG) containing all the .o files for $(NAME_BG)$(BLACK_FG) $(NAME) $(CLEAR_COLOR)"
