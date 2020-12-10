@@ -6,12 +6,13 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 02:38:07 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/10 00:16:43 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/10 20:17:54 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <stdlib.h> //for atoi
 #include "Contacts.hpp"
 #include "PhoneBook.hpp"
 
@@ -58,7 +59,8 @@ int search_contact(PhoneBook *Phonebook)
 			std::cout << "\033[31mnumbers only... try again!\033[m" << std::endl;
 			continue ;
 		}
-		choice = std::stoi(input, NULL, 10);
+		choice = atoi(input.c_str());
+		//choice = std::stoi(input, NULL, 10); no, its c++11 standard...
 		//check the input number is within range:
 		if (choice > Phonebook->getSize() || choice < 1)
 		{ 
