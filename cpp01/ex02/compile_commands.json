@@ -1,0 +1,36 @@
+[
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-std=c++98",
+            "-I",
+            "./",
+            "-o",
+            "objects/Zombie.o",
+            "Zombie.cpp"
+        ],
+        "directory": "/Users/charmstr/Projects/piscine_cpp42/cpp01/ex02",
+        "file": "Zombie.cpp"
+    },
+    {
+        "arguments": [
+            "c++",
+            "-c",
+            "-Wall",
+            "-Wextra",
+            "-Werror",
+            "-std=c++98",
+            "-I",
+            "./",
+            "-o",
+            "objects/ZombieEvent.o",
+            "ZombieEvent.cpp"
+        ],
+        "directory": "/Users/charmstr/Projects/piscine_cpp42/cpp01/ex02",
+        "file": "ZombieEvent.cpp"
+    }
+]
