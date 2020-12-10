@@ -6,14 +6,14 @@
 #    By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/27 17:46:05 by charmstr          #+#    #+#              #
-#    Updated: 2020/12/10 00:53:05 by charmstr         ###   ########.fr        #
+#    Updated: 2020/12/10 20:20:12 by user42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 ############################ SETTINGS #########################################
 ###############################################################################
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
+CXXFLAGS = -Wall -Wextra -Werror -std=c++11 
 CXX = clang++
 NAME = bonus
 IFLAGS = -I $(INCLUDE_PATH_PROJECT)
