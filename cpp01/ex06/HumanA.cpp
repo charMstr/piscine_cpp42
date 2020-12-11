@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/10 12:06:36 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/11 02:10:58 by charmstr         ###   ########.fr       */
+/*   Created: 2020/12/11 06:19:21 by charmstr          #+#    #+#             */
+/*   Updated: 2020/12/11 06:48:48 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include <sstream> //for std::stringstream 
+#include "HumanA.hpp"
+#include <iostream>
 
-Brain::Brain(void)
-{
-	_greyMatterQuantity = 20;
-	_size = 20;
-	return ;
-}
-
-Brain::~Brain(void)
+HumanA::~HumanA(void)
 {
 	return ;
 }
 
-std::string	
-Brain::identify(void) const
-{
-	/* lowercase version...
-	** std::stringstream ss;
-	** ss << this;
-	** return (ss.str());
-	*/
-	std::stringstream ss;
 
-	ss << "0x" << std::uppercase << std::hex << uintptr_t(this);
-	return (ss.str());
+void
+HumanA::attack(void) const
+{
+	std::cout << _name << " attacks with his ";
+	std::cout << _Weapon.getType() << "!" <<std::endl;
+}
+
+HumanA::HumanA(std::string name, Weapon &Weap) :
+	_name(name),
+	_Weapon(Weap)
+{
+	return ;
 }

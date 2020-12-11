@@ -1,40 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/10 12:06:36 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/11 02:10:58 by charmstr         ###   ########.fr       */
+/*   Created: 2020/12/11 06:49:09 by charmstr          #+#    #+#             */
+/*   Updated: 2020/12/11 07:06:34 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include <sstream> //for std::stringstream 
+#include "HumanB.hpp"
+#include "Weapon.hpp"
+#include <iostream>
 
-Brain::Brain(void)
-{
-	_greyMatterQuantity = 20;
-	_size = 20;
-	return ;
-}
-
-Brain::~Brain(void)
+HumanB::~HumanB(void)
 {
 	return ;
 }
 
-std::string	
-Brain::identify(void) const
+void
+HumanB::attack(void) const
 {
-	/* lowercase version...
-	** std::stringstream ss;
-	** ss << this;
-	** return (ss.str());
-	*/
-	std::stringstream ss;
+	std::cout << _name << " attacks with his ";
+	if (!_Weapon)
+	{
+		std::cout << "nothing!" << std::endl;
+		return ;
+	}
+	std::cout << _Weapon->getType() << "!" <<std::endl;
+}
 
-	ss << "0x" << std::uppercase << std::hex << uintptr_t(this);
-	return (ss.str());
+HumanB::HumanB(std::string name) :
+	_name(name)
+{
+	_Weapon = NULL;
+	return ;
+}
+
+void
+HumanB::setWeapon(Weapon &Weap)
+{
+	_Weapon = &Weap;
 }

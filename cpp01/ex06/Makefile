@@ -6,7 +6,7 @@
 #    By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/27 17:46:05 by charmstr          #+#    #+#              #
-#    Updated: 2020/12/11 06:07:04 by charmstr         ###   ########.fr        #
+#    Updated: 2020/12/11 06:50:32 by charmstr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 CXX = clang++
 #HERE
-NAME = BrainAndHumans.out
+NAME = WeaponAndHumans.out
 IFLAGS = -I $(INCLUDE_PATH_PROJECT)
 LDFLAGS =
 
@@ -54,8 +54,9 @@ INCLUDE_PATH_PROJECT = ./
 ########################### HEADER FILES ######################################
 ###############################################################################
 #HERE
-HPP_FILES =	Brain\
-			Human
+HPP_FILES =	Weapon\
+			HumanA\
+			HumanB
 
 
 #HPP_FILES_BONUS =
@@ -74,8 +75,9 @@ INCLUDES := $(patsubst %, $(INCLUDE_PATH_PROJECT)%.hpp, $(HPP_FILES))
 ###############################################################################
 # HERE
 SRC_FILES =	main\
-			Brain\
-			Human
+			Weapon\
+			HumanA\
+			HumanB
 	
 #BONUS_FILES =
 
@@ -126,6 +128,6 @@ fclean: clean
 	@echo "\t\t$(REMOVE_FG)deleting $(NAME_BG)$(BLACK_FG) $(NAME) $(BLACK_BG)$(REMOVE_FG)...$(CLEAR_COLOR)"
 	@rm -rf $(NAME)
 	@echo "\t\t$(REMOVE_FG)deleting $(NAME_BG)$(BLACK_FG) compile_commands.json $(BLACK_BG)$(REMOVE_FG)...$(CLEAR_COLOR)"
-	@rm -rf compile_commands.json
+	@rm -f compile_commands.json
 
 re: fclean all

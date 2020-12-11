@@ -6,10 +6,9 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 23:15:18 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/10 23:30:29 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/11 01:49:18 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "Human.hpp"
 #include <sstream> //for std::stringstream 

@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/10 12:06:36 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/11 02:10:58 by charmstr         ###   ########.fr       */
+/*   Created: 2020/12/11 06:10:19 by charmstr          #+#    #+#             */
+/*   Updated: 2020/12/11 06:30:00 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
-#include <sstream> //for std::stringstream 
+#include "Weapon.hpp"
+#include <string>
 
-Brain::Brain(void)
-{
-	_greyMatterQuantity = 20;
-	_size = 20;
-	return ;
-}
-
-Brain::~Brain(void)
+Weapon::Weapon(void)
 {
 	return ;
 }
 
-std::string	
-Brain::identify(void) const
+Weapon::~Weapon(void)
 {
-	/* lowercase version...
-	** std::stringstream ss;
-	** ss << this;
-	** return (ss.str());
-	*/
-	std::stringstream ss;
+	return ;
+}
 
-	ss << "0x" << std::uppercase << std::hex << uintptr_t(this);
-	return (ss.str());
+std::string const &
+Weapon::getType(void) const
+{
+	return (this->_type);
+}
+
+void
+Weapon::setType(std::string type)
+{
+	_type = type;
+}
+
+Weapon::Weapon(std::string type)
+{
+	 this->_type = type;
 }
