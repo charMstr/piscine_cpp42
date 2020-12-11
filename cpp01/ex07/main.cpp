@@ -6,12 +6,14 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 07:11:01 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/11 08:25:12 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:20:48 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
+#include <cstring>
 
 int charByChar(std::ifstream &ifs, std::string s1, std::string s2, std::ofstream  &ofs);
 
@@ -30,7 +32,9 @@ int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	std::ifstream ifs(argv[1]);	
 	std::string output(argv[1]);
 	output = output +  "." + "replace";
-	std::ofstream ofs(output);	
+	char cstr[output.size() + 1];
+	strcpy(cstr, output.c_str());
+	std::ofstream ofs(cstr);	
 	if (!ifs)
 	{
 		std::cout << "Error: could not open: "<< argv[1]  << std::endl;

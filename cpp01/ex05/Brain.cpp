@@ -6,12 +6,13 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 12:06:36 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/11 02:10:58 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/11 14:07:35 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 #include <sstream> //for std::stringstream 
+#include <stdint.h>
 
 Brain::Brain(void)
 {
