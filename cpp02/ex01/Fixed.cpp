@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 06:46:46 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/12 08:38:46 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/12 12:17:00 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ Fixed::operator=(Fixed const &rhs)
 std::ostream	&
 operator<<(std::ostream &o, Fixed const &i)
 {
-	o << i.getRawBits();
+	o << i.toFloat();
 	return o;
 }
 
@@ -91,13 +91,11 @@ Fixed::setRawBits(int const raw)
 int
 Fixed::toInt(void) const
 {
-	std::cout << "toInt member function called" << std::endl;
 	return (_fixedPointValue >> 8);
 }
 
 float
 Fixed::toFloat(void) const
 {
-	std::cout << "toFloat member function called" << std::endl;
 	return ((float)_fixedPointValue / (float)(1 << _bitsNbr));
 }

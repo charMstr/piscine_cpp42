@@ -6,7 +6,7 @@
 #    By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/27 17:46:05 by charmstr          #+#    #+#              #
-#    Updated: 2020/12/12 07:01:26 by charmstr         ###   ########.fr        #
+#    Updated: 2020/12/12 09:29:23 by charmstr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 CXX = clang++
 #HERE
-NAME = Fxed.out
+NAME = Fixed.out
 IFLAGS = -I $(INCLUDE_PATH_PROJECT)
 LDFLAGS =
 
