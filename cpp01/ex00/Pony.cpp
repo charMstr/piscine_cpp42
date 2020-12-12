@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/10 04:24:03 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/10 04:51:18 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/11 18:32:56 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ Pony::~Pony(void)
 	std::cout << "Destructor called for Pony: " << this->_name << std::endl;	
 }
 
-void 
-Pony::eat(void)
+void Pony::eat(void)
 {
 	std::cout << this->_name << " is eating " << this->_favoriteFood \
 		<< "." << std::endl;
