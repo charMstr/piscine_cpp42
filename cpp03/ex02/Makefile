@@ -6,7 +6,7 @@
 #    By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/27 17:46:05 by charmstr          #+#    #+#              #
-#    Updated: 2020/12/13 07:34:45 by charmstr         ###   ########.fr        #
+#    Updated: 2020/12/13 07:46:29 by charmstr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 CXX = clang++
 #HERE
-NAME = FR4G-AND-SC4V-TRAP.out
+NAME = FR4G-AND-SC4V-AND-CL4P-TRAP.out
 IFLAGS = -I $(INCLUDE_PATH_PROJECT)
 LDFLAGS =
 
@@ -55,7 +55,8 @@ INCLUDE_PATH_PROJECT = ./
 ###############################################################################
 #HERE
 HPP_FILES =	FragTrap\
-			ScavTrap
+			ScavTrap\
+			ClapTrap
 
 
 #HPP_FILES_BONUS =
@@ -75,7 +76,8 @@ INCLUDES := $(patsubst %, $(INCLUDE_PATH_PROJECT)%.hpp, $(HPP_FILES))
 # HERE
 SRC_FILES =	main\
 			FragTrap\
-			ScavTrap
+			ScavTrap\
+			ClapTrap
 	
 #BONUS_FILES =
 

@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/12 06:46:46 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/12 13:51:42 by charmstr         ###   ########.fr       */
+/*   Created: 2020/12/13 05:01:23 by charmstr          #+#    #+#             */
+/*   Updated: 2020/12/13 08:34:06 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-//#include <iostream>
+# include "ClapTrap.hpp"
+#include <iostream>
 
-class Fixed
+class FragTrap : public ClapTrap
 {
 	public:
-		Fixed(void);
-		Fixed(Fixed const &src);
-		~Fixed(void);
+		FragTrap(std::string name = "anonymous");
+		FragTrap(FragTrap const &src);
+		~FragTrap(void);
 
-		Fixed &	operator=(Fixed const &rhs);
-
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		FragTrap &	operator=(FragTrap const &rhs);
+	
+		int		vaulthunter_dot_exe(std::string const & target);
+	protected:
 
 	private:
-		int					_fixedPointValue;
-		static const int	_bitsNbr;
+		std::string	_attackRandom[5];
+			
 };
 
-//std::ostream	&operator<<(std::ostream &o, Fixed const &i);
+//std::ostream	&operator<<(std::ostream &o, FragTrap const &i);
 
 #endif

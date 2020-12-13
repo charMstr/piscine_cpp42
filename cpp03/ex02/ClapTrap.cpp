@@ -1,56 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/13 07:07:25 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 07:34:06 by charmstr         ###   ########.fr       */
+/*   Created: 2020/12/13 07:37:58 by charmstr          #+#    #+#             */
+/*   Updated: 2020/12/13 08:18:24 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "ScavTrap.hpp"
-#include <cstdlib>
-#include <ctime>
+//#include <iostream>
+#include "ClapTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name) :
+ClapTrap::ClapTrap(std::string name) :
 	_hitPoints(100),
 	_maxHitPoints(100),
-	_energyPoints(50),
-	_maxEnergyPoints(50),
+	_energyPoints(100),
+	_maxEnergyPoints(100),
 	_level(1),
 	_name(name),
-	_meleeAttackDamage(20),
-	_rangeAttackDamage(15),
-	_armorDamageReduction(3)
+	_meleeAttackDamage(30),
+	_rangeAttackDamage(20),
+	_armorDamageReduction(5)
 {
-	std::cout << "SC4V-TP: " << _name << "'s contructor called." << std::endl;
-	_attackRandom[0] = "Try to touch you nose with your Tongue!";
-	_attackRandom[1] = "Try to give me a German suplex!";
-	_attackRandom[2] = "Up for a little roll on the ground?";
-	_attackRandom[3] = "eat a red pepper!";
-	_attackRandom[4] = "give ten points to the pool!";
-
+	std::cout << "CL4P-TP: " << _name << "'s contructor called." << std::endl;
 	return ;
 }
 
-ScavTrap::~ScavTrap(void)
+ClapTrap::~ClapTrap(void)
 {
-	std::cout << "SC4V-TP: " << _name << " has been destroyed!" << std::endl;
+	std::cout << "CL4P-TP: " << _name << " has been destroyed!" << std::endl;
 	return ;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &src)
+//setting the const _name in the initialisation list
+ClapTrap::ClapTrap(ClapTrap const &src) : _name(src._name)
 {
-	std::cout << "SC4V-TP: " << _name << " constructed by copy." << std::endl;
+	std::cout << "CL4P-TP: " << _name << " constructed by copy." << std::endl;
 	*this = src;
 	return ;
 }
 
-ScavTrap	&
-ScavTrap::operator=(ScavTrap const &rhs)
+ClapTrap	&
+ClapTrap::operator=(ClapTrap const &rhs)
 {
 	if (this != &rhs)
 	{
@@ -59,21 +52,15 @@ ScavTrap::operator=(ScavTrap const &rhs)
 		_energyPoints = rhs._energyPoints;
 		_maxEnergyPoints = rhs._maxEnergyPoints;
 		_level = rhs._level;
-		_name = rhs._name;
 		_meleeAttackDamage = rhs._meleeAttackDamage;
 		_rangeAttackDamage = rhs._rangeAttackDamage;
 		_armorDamageReduction = rhs._armorDamageReduction;
-		_attackRandom[0] = rhs._attackRandom[0];
-		_attackRandom[1] = rhs._attackRandom[1];
-		_attackRandom[2] = rhs._attackRandom[2];
-		_attackRandom[3] = rhs._attackRandom[3];
-		_attackRandom[4] = rhs._attackRandom[4];
 	}
 	return *this;
 }
 
 //std::ostream	&
-//operator<<(std::ostream &o, ScavTrap const &i)
+//operator<<(std::ostream &o, ClapTrap const &i)
 //{
 //	o << rhs.getValue();
 //	return o;
@@ -81,25 +68,25 @@ ScavTrap::operator=(ScavTrap const &rhs)
 
 
 void
-ScavTrap::rangedAttack(std::string const & target) const
+ClapTrap::rangedAttack(std::string const & target) const
 {
 	std::cout << "\033[31m" << std::endl;
-	std::cout  << "SC4V-TP " << _name << " attaque " <<  target \
+	std::cout  << "CL4P-TP " << _name << " attaque " <<  target \
 		<< " à distance, causant " << _rangeAttackDamage \
 		<<  " points de dégâts !\033[m" << std::endl;
 }
 
 void
-ScavTrap::meleeAttack(std::string const & target) const
+ClapTrap::meleeAttack(std::string const & target) const
 {
 	std::cout << "\033[31m" << std::endl;
-	std::cout << "SC4V-TP " << _name << " attaque " <<  target \
+	std::cout << "CL4P-TP " << _name << " attaque " <<  target \
 		<< " au corps a corps, causant " << _meleeAttackDamage \
 		<<  " points de dégâts !\033[m" << std::endl;
 }
 
 int
-ScavTrap::takeDamage(unsigned int amount)
+ClapTrap::takeDamage(unsigned int amount)
 {
 	int damage = amount - _armorDamageReduction;
 
@@ -128,7 +115,7 @@ ScavTrap::takeDamage(unsigned int amount)
 }
 
 void
-ScavTrap::beRepaired(unsigned int amount)
+ClapTrap::beRepaired(unsigned int amount)
 {
 	_hitPoints = amount + _hitPoints;
 	if (_hitPoints > _maxHitPoints)
@@ -141,32 +128,13 @@ ScavTrap::beRepaired(unsigned int amount)
 }
 
 int
-ScavTrap::getMeleeAttackDammage() const
+ClapTrap::getMeleeAttackDammage() const
 {
 	return (this->_meleeAttackDamage);
 }
 int
 
-ScavTrap::getRangeAttackDammage() const
+ClapTrap::getRangeAttackDammage() const
 {
 	return (this->_rangeAttackDamage);
-}
-
-int
-ScavTrap::challengeNewcomer(std::string const & target)
-{
-    int i = std::rand() % 5;
-
-	_energyPoints -= 25;
-	if (_energyPoints < 0)
-	{
-		_energyPoints = 0;
-		std::cout << "Damn it, not enough energy!" << std::endl;
-		return (0);
-	}
-	std::cout << "\033[31m" << std::endl;
-	std::cout  << "SC4V-TP " << _name << " challenges " <<  target \
-		<< " with random challenge: \033[35m"  << _attackRandom[i] \
-		<<  "!\033[m" << std::endl;
-	return (1);
 }
