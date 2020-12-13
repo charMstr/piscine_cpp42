@@ -1,43 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   SuperTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/13 05:01:23 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 12:07:04 by charmstr         ###   ########.fr       */
+/*   Created: 2020/12/13 10:52:10 by charmstr          #+#    #+#             */
+/*   Updated: 2020/12/13 18:54:47 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SUPERTRAP_HPP
+# define SUPERTRAP_HPP
 
-# include "ClapTrap.hpp"
-#include <iostream>
+# include "FragTrap.hpp"
+# include "NinjaTrap.hpp"
+//#include <iostream>
 
-class FragTrap : public ClapTrap
+class SuperTrap : public FragTrap, public NinjaTrap
 {
 	public:
-		FragTrap(std::string name = "anonymous");
-		FragTrap(FragTrap const &src);
-		~FragTrap(void);
+		SuperTrap(std::string name = "default");
+		SuperTrap(SuperTrap const &src);
+		~SuperTrap(void);
 
-		FragTrap &	operator=(FragTrap const &rhs);
-	
-		//specialisation of functions
+		SuperTrap &	operator=(SuperTrap const &rhs);
+
+		//redifinition of the function in diamond, to avoid two
+		//overidings, we have to define the function and make it call
+		//the specific parent's func.
 		void	rangedAttack(std::string const & target) const;
 		void	meleeAttack(std::string const & target) const;
-
-		//added functions:
-		int		vaulthunter_dot_exe(std::string const & target);
 	protected:
 
 	private:
-		std::string	_attackRandom[5];
-			
+		
 };
 
-//std::ostream	&operator<<(std::ostream &o, FragTrap const &i);
+//std::ostream	&operator<<(std::ostream &o, SuperTrap const &i);
 
 #endif

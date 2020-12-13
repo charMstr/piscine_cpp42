@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/13 05:01:23 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 12:07:04 by charmstr         ###   ########.fr       */
+/*   Created: 2020/12/13 09:06:15 by charmstr          #+#    #+#             */
+/*   Updated: 2020/12/13 18:59:45 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef NINJATRAP_HPP
+# define NINJATRAP_HPP
 
-# include "ClapTrap.hpp"
 #include <iostream>
+# include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
-class FragTrap : public ClapTrap
+class NinjaTrap : virtual public ClapTrap
 {
 	public:
-		FragTrap(std::string name = "anonymous");
-		FragTrap(FragTrap const &src);
-		~FragTrap(void);
+		NinjaTrap(std::string name = "anonymous");
+		NinjaTrap(NinjaTrap const &src);
+		~NinjaTrap(void);
 
-		FragTrap &	operator=(FragTrap const &rhs);
-	
+		NinjaTrap &	operator=(NinjaTrap const &rhs);
+
 		//specialisation of functions
 		void	rangedAttack(std::string const & target) const;
 		void	meleeAttack(std::string const & target) const;
 
-		//added functions:
-		int		vaulthunter_dot_exe(std::string const & target);
+		//same signature, but different class parameter.
+		void ninjaShoebox(NinjaTrap &inst) const;
+		void ninjaShoebox(ClapTrap &inst) const;
+		void ninjaShoebox(FragTrap &inst) const;
+		void ninjaShoebox(ScavTrap &inst) const;
 	protected:
 
 	private:
-		std::string	_attackRandom[5];
-			
+		
 };
 
-//std::ostream	&operator<<(std::ostream &o, FragTrap const &i);
+//std::ostream	&operator<<(std::ostream &o, NinjaTrap const &i);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 07:07:25 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 08:34:19 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 11:57:54 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ class ScavTrap : public ClapTrap
 
 		ScavTrap &	operator=(ScavTrap const &rhs);
 
+		//specialisation of functions
+		void	rangedAttack(std::string const & target) const;
+		void	meleeAttack(std::string const & target) const;
+
 		//added functions:
 		int		challengeNewcomer(std::string const & target);
-
 	protected:
 
 	private:

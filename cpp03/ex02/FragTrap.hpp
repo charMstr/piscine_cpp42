@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 05:01:23 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 08:34:06 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 11:59:48 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ class FragTrap : public ClapTrap
 		~FragTrap(void);
 
 		FragTrap &	operator=(FragTrap const &rhs);
-	
+
+		//specialisation of functions
+		void	rangedAttack(std::string const & target) const;
+		void	meleeAttack(std::string const & target) const;
+
+		//added functions:
 		int		vaulthunter_dot_exe(std::string const & target);
 	protected:
 

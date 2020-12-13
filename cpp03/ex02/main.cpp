@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 05:00:40 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 08:46:42 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 11:53:22 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	//		1) calling the Clap-Trap constructor (Parent class)
 	//		2)calling the the Scav-Trap (Child Class).
 	{
-		FragTrap Robot1("Scav-Antonio");
+		ScavTrap Robot1("Scav-Antonio");
 	}
 
 	std::cout << std::endl << std::endl;
@@ -75,5 +75,12 @@ int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 		FragTrap Robot1("...Frap-Trap_to_copy_into_another_Frag-Trap...");
 		FragTrap Robot2(Robot1);
 	}
+
+	std::cout << std::endl << std::endl;
+	std::cout << "\033[31mTest 5: some attacks from our ScavTrap\033[m" << std::endl;
+
+	ScavTrap scavMan("scavMan");
+
+	scavMan.rangedAttack("Victim");
 	return (0);
 }

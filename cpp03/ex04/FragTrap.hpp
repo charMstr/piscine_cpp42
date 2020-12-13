@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 05:01:23 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 12:07:04 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 18:50:39 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "ClapTrap.hpp"
 #include <iostream>
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
 	public:
 		FragTrap(std::string name = "anonymous");

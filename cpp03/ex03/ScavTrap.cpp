@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 07:07:25 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 09:04:26 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 19:12:40 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ ScavTrap::operator=(ScavTrap const &rhs)
 {
 	if (this != &rhs)
 	{
+		_hitPoints = rhs._hitPoints;
+		_maxHitPoints = rhs._maxHitPoints;
+		_energyPoints = rhs._energyPoints;
+		_maxEnergyPoints = rhs._maxEnergyPoints;
+		_level = rhs._level;
+		_meleeAttackDamage = rhs._meleeAttackDamage; 
+		_rangeAttackDamage = rhs._rangeAttackDamage; 
+		_armorDamageReduction = rhs._armorDamageReduction;
 		_attackRandom[0] = rhs._attackRandom[0];
 		_attackRandom[1] = rhs._attackRandom[1];
 		_attackRandom[2] = rhs._attackRandom[2];
@@ -73,6 +81,22 @@ ScavTrap::operator=(ScavTrap const &rhs)
 //	return o;
 //}
 
+void
+ScavTrap::rangedAttack(std::string const & target) const
+{
+	std::cout  << "\033[31m"<< "SC4V-TP " << _name << " attaque " <<  target \
+		<< " à distance, causant " << _rangeAttackDamage \
+		<<  " points de dégâts !\033[m" << std::endl;
+}
+
+void
+ScavTrap::meleeAttack(std::string const & target) const
+{
+	std::cout << "\033[31m"<< "SC4V-TP " << _name << " attaque " <<  target \
+		<< " au corps a corps, causant " << _meleeAttackDamage \
+		<<  " points de dégâts !\033[m" << std::endl;
+}
+
 int
 ScavTrap::challengeNewcomer(std::string const & target)
 {
@@ -85,8 +109,7 @@ ScavTrap::challengeNewcomer(std::string const & target)
 		std::cout << "Damn it, not enough energy!" << std::endl;
 		return (0);
 	}
-	std::cout << "\033[31m" << std::endl;
-	std::cout  << "SC4V-TP " << _name << " challenges " <<  target \
+	std::cout  << "\033[31mSC4V-TP " << _name << " challenges " <<  target \
 		<< " with random challenge: \033[35m"  << _attackRandom[i] \
 		<<  "!\033[m" << std::endl;
 	return (1);

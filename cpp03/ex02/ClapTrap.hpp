@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 07:37:58 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 08:19:56 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 19:18:36 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,12 @@ class ClapTrap
 		//added functions (common to all).
 		int		getMeleeAttackDammage() const;
 		int		getRangeAttackDammage() const;
+		const std::string &getName() const;
 
-		void	rangedAttack(std::string const & target) const;
-		void	meleeAttack(std::string const & target) const;
+		//virtual so that i can specialise them in the child classes
+		virtual void	rangedAttack(std::string const & target) const;
+		virtual void	meleeAttack(std::string const & target) const;
+
 		int		takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 

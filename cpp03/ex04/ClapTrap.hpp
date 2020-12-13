@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 07:37:58 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 12:05:47 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 12:15:42 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,28 @@ class ClapTrap
 		ClapTrap &	operator=(ClapTrap const &rhs);
 
 		//added functions (common to all).
-		int			getMeleeAttackDammage() const;
-		int			getRangeAttackDammage() const;
-		const std::string &getName() const;
+		int					getMeleeAttackDammage() const;
+		int					getRangeAttackDammage() const;
+		const std::string	&getName() const;
 
-		//virtual so that i can specialise them in the child classes
-		virtual void	rangedAttack(std::string const & target) const;
-		virtual void	meleeAttack(std::string const & target) const;
+		//specialisation functions in childs so virtual
+		virtual void				rangedAttack(std::string const & target) const;
+		virtual void				meleeAttack(std::string const & target) const;
 
-		int			takeDamage(unsigned int amount);
-		void		beRepaired(unsigned int amount);
+		int					takeDamage(unsigned int amount);
+		void				beRepaired(unsigned int amount);
 
 	protected:
-		int			_hitPoints;
-		int			_maxHitPoints;
-		int			_energyPoints;
-		int			_maxEnergyPoints;
-		int			_level;
+		int					_hitPoints;
+		int					_maxHitPoints;
+		int					_energyPoints;
+		int					_maxEnergyPoints;
+		int					_level;
 		//put _name as const to make it harder.
-		const std::string _name;
-		int			_meleeAttackDamage;
-		int			_rangeAttackDamage;
-		int			_armorDamageReduction;
+		const std::string	_name;
+		int					_meleeAttackDamage;
+		int					_rangeAttackDamage;
+		int					_armorDamageReduction;
 
 	private:
 };

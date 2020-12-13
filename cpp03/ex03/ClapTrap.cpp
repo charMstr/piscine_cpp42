@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 07:37:58 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 09:28:49 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 19:10:13 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,7 @@ ClapTrap::operator=(ClapTrap const &rhs)
 void
 ClapTrap::rangedAttack(std::string const & target) const
 {
-	std::cout << "\033[31m" << std::endl;
-	std::cout  << "CL4P-TP " << _name << " attaque " <<  target \
+	std::cout << "\033[31m" << "CL4P-TP " << _name << " attaque " <<  target \
 		<< " à distance, causant " << _rangeAttackDamage \
 		<<  " points de dégâts !\033[m" << std::endl;
 }
@@ -79,8 +78,7 @@ ClapTrap::rangedAttack(std::string const & target) const
 void
 ClapTrap::meleeAttack(std::string const & target) const
 {
-	std::cout << "\033[31m" << std::endl;
-	std::cout << "CL4P-TP " << _name << " attaque " <<  target \
+	std::cout << "\033[31m"<< "CL4P-TP " << _name << " attaque " <<  target \
 		<< " au corps a corps, causant " << _meleeAttackDamage \
 		<<  " points de dégâts !\033[m" << std::endl;
 }
@@ -90,18 +88,17 @@ ClapTrap::takeDamage(unsigned int amount)
 {
 	int damage = amount - _armorDamageReduction;
 
-	std::cout << "\033[33m" << std::endl;
 	if (damage < 0)
 	{
-		std::cout << _name << "'s armor took all the damage." \
+		std::cout << "\033[33m" << _name << "'s armor took all the damage." \
 			<< "\033[m" << std::endl;
 		return (1);	
 	}
 	if (damage > _hitPoints)
 		damage = _hitPoints;
 	_hitPoints = _hitPoints - damage;
-	std::cout << _name << " takes " << amount << " damage..."  << std::endl;
-	std::cout << "but his armor took in " << _armorDamageReduction \
+	std::cout << "\033[33m"<< _name << " takes " << amount << " damage..."\
+		<< std::endl << "but his armor took in " << _armorDamageReduction \
 		<< " of the inflicted damage." << std::endl;
 	if (_hitPoints == 0)
 	{
@@ -120,8 +117,7 @@ ClapTrap::beRepaired(unsigned int amount)
 	_hitPoints = amount + _hitPoints;
 	if (_hitPoints > _maxHitPoints)
 		_hitPoints = _maxHitPoints;
-	std::cout << "\033[32m" << std::endl;
-	std::cout << _name << " got his hit points repaired to: " << _hitPoints;
+	std::cout << "\033[32m" <<  _name << " got his hit points repaired to: " << _hitPoints;
 	if (_maxHitPoints == _hitPoints)
 		std::cout << "(max)";
 	std::cout << "\033[m" << std::endl;

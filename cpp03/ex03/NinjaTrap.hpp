@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 09:06:15 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 09:48:00 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 12:11:33 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ class NinjaTrap : public ClapTrap
 		~NinjaTrap(void);
 
 		NinjaTrap &	operator=(NinjaTrap const &rhs);
+
+		//specialisation of functions
+		void	rangedAttack(std::string const & target) const;
+		void	meleeAttack(std::string const & target) const;
 
 		//same signature, but different class parameter.
 		void ninjaShoebox(NinjaTrap &inst) const;
