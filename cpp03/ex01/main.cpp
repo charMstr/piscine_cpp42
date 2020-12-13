@@ -6,17 +6,19 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 05:00:40 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 07:30:43 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 19:24:56 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include <ctime>
+#include <cstdlib>
 
 int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 {
-	std::srand(std::time(nullptr)); // use current time as seed for random generator
+	std::srand(std::time(NULL)); // use current time as seed for random generator
 
 	{
 		FragTrap Robot1("robot1");

@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 05:00:40 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 11:53:22 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 19:25:37 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
+#include <ctime>
+#include <cstdlib>
 
 int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 {
-	std::srand(std::time(nullptr)); // use current time as seed for random generator
+	std::srand(std::time(NULL)); // use current time as seed for random generator
 	std::cout << "\033[31mTest 1: ClapTrap instantiation\033[m" << std::endl;
 
 	//contructing a ClapTrap
