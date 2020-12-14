@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 05:01:22 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/13 07:04:30 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/13 19:22:17 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ FragTrap::FragTrap(std::string name) :
 	_attackRandom[3] = "Pinch you nose";
 	_attackRandom[4] = "Scream in you ear";
 
-	 std::srand(std::time(nullptr)); // use current time as seed for random generator
+	 std::srand(std::time(NULL)); // use current time as seed for random generator
 	return ;
 }
 
