@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 06:45:57 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/14 09:18:21 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/14 10:09:05 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,13 @@ operator<<(std::ostream &o, Sorcerer const &instance)
 	return o;
 }
 
-std::string
+std::string const
 Sorcerer::getName() const
 {
 	return (this->_name);
 }
 
-std::string
+std::string const
 Sorcerer::getTitle() const
 {
 	return (this->_title);

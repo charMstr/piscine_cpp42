@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/14 07:09:13 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/14 10:10:20 by charmstr         ###   ########.fr       */
+/*   Created: 2020/12/14 10:22:45 by charmstr          #+#    #+#             */
+/*   Updated: 2020/12/14 10:37:20 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef PLASMARIFLE_HPP
+# define PLASMARIFLE_HPP
 
 #include <iostream>
+# include "AWeapon.hpp"
 
-class Victim
+class PlasmaRifle :  public AWeapon
 {
 	public:
-		Victim(std::string name = "\"default_victime\"");
-		Victim(Victim const &src);
-virtual	~Victim(void);
+		PlasmaRifle(void);
+		PlasmaRifle(PlasmaRifle const &src);
+virtual	~PlasmaRifle(void);
+		PlasmaRifle &	operator=(PlasmaRifle const &rhs);
 
-		Victim &	operator=(Victim const &rhs);
-
-		std::string	const 	getName() const;
-
-		virtual void		getPolymorphed() const;
+		void			attack() const;
 
 	protected:
 
-		std::string	_name;
-	private:
+	private:	
+
 };
 
-//not made virtual because it wont be redifined by the child classes
-std::ostream	&operator<<(std::ostream &o, Victim const &i);
+//std::ostream	&operator<<(std::ostream &o, PlasmaRifle const &i);
 
 #endif

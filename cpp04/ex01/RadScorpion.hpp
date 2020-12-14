@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/14 07:09:13 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/14 10:10:20 by charmstr         ###   ########.fr       */
+/*   Created: 2020/12/14 13:05:19 by charmstr          #+#    #+#             */
+/*   Updated: 2020/12/14 13:10:09 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef RADSCORPION_HPP
+# define RADSCORPION_HPP
 
-#include <iostream>
+# include "Enemy.hpp"
+//#include <iostream>
 
-class Victim
+class RadScorpion : public Enemy
 {
 	public:
-		Victim(std::string name = "\"default_victime\"");
-		Victim(Victim const &src);
-virtual	~Victim(void);
+		RadScorpion(void);
+		RadScorpion(RadScorpion const &src);
+virtual	~RadScorpion(void);
 
-		Victim &	operator=(Victim const &rhs);
+		RadScorpion &	operator=(RadScorpion const &rhs);
 
-		std::string	const 	getName() const;
-
-		virtual void		getPolymorphed() const;
-
+		//only the constructor/destructor needed to be overidden
+//		virtual void	takeDamage(int d);
 	protected:
 
-		std::string	_name;
 	private:
+		
 };
 
-//not made virtual because it wont be redifined by the child classes
-std::ostream	&operator<<(std::ostream &o, Victim const &i);
+//std::ostream	&operator<<(std::ostream &o, RadScorpion const &i);
 
 #endif

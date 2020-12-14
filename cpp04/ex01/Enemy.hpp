@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/14 07:09:13 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/14 10:10:20 by charmstr         ###   ########.fr       */
+/*   Created: 2020/12/14 10:54:38 by charmstr          #+#    #+#             */
+/*   Updated: 2020/12/14 12:16:10 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
 
 #include <iostream>
 
-class Victim
+class Enemy
 {
 	public:
-		Victim(std::string name = "\"default_victime\"");
-		Victim(Victim const &src);
-virtual	~Victim(void);
+		Enemy(int hp = 0, std::string const & type = "\"defalut_enemy\"");
+		Enemy(Enemy const &src);
+virtual	~Enemy(void);
 
-		Victim &	operator=(Victim const &rhs);
+		Enemy &	operator=(Enemy const &rhs);
 
-		std::string	const 	getName() const;
-
-		virtual void		getPolymorphed() const;
-
+		std::string		getType() const;
+		int				getHP() const;
+		void			setHP(int new_hp);
+		void			setType(std::string const &type);
+		virtual void	takeDamage(int d);
 	protected:
 
-		std::string	_name;
 	private:
+		int			_hp;
+		std::string _type;
+		
 };
 
-//not made virtual because it wont be redifined by the child classes
-std::ostream	&operator<<(std::ostream &o, Victim const &i);
+//std::ostream	&operator<<(std::ostream &o, Enemy const &i);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 07:09:13 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/14 08:19:39 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/14 10:09:37 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ operator<<(std::ostream &o, Victim const &rhs)
 	return o;
 }
 
-std::string
+std::string const
 Victim::getName() const
 {
 	return (this->_name);

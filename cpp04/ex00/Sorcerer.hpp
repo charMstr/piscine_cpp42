@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 06:45:57 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/14 07:38:39 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/14 10:08:28 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ virtual	~Sorcerer(void);
 
 		Sorcerer &	operator=(Sorcerer const &rhs);
 
-		std::string	getName() const;
-		std::string	getTitle() const;
+		std::string	const getName() const;
+		std::string	const getTitle() const;
 
 		void		polymorph(Victim const &vi);
 	protected:
