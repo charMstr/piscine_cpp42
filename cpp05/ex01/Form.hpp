@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 04:11:28 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/16 05:09:38 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/16 05:51:52 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ virtual	~Form(void);
 		Form &	operator=(Form const &rhs);
 
 		int					checkGradeToSign(int grade) const;
-		int					checkGradeToExecute(int grade, int gradeToSign) const;
+		int					checkGradeToExecute(int grade) const;
 
 		std::string const &	getName(void) const;
 		int					getSigned(void) const;

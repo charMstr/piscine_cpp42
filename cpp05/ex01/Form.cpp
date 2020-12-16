@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 04:11:28 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/16 05:26:18 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/16 05:51:39 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 Form::Form(std::string const &name, int gradeToSign, int gradeToExecute) :
 	_name(name),
 	_gradeToSign(checkGradeToSign(gradeToSign)),
-	_gradeToExecute(checkGradeToExecute(gradeToExecute, gradeToSign)),
+	_gradeToExecute(checkGradeToExecute(gradeToExecute)),
 	_signed(0)
 {
 	std::cout << "\033[33mconstructor called for Form (" << getName() \
@@ -38,15 +38,12 @@ Form::checkGradeToSign(int gradeToSign) const
 }
 //exception thrower for thr constructor
 int
-Form::checkGradeToExecute(int gradeToExecute, int gradeToSign) const
+Form::checkGradeToExecute(int gradeToExecute) const
 {
 	if (gradeToExecute < 1)
 		throw MyException("Form::GradeTooHighException");
 	else if (gradeToExecute > 150)
 		throw MyException("Form::GradeTooLowException");
-	//added a case if grade to sign is lower than grade to execute, non sens!
-	else if (gradeToExecute < gradeToSign)
-		throw MyException("Form::GradeIllogical");
 	return (gradeToExecute);
 }
 

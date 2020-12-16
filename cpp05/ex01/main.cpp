@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:16:41 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/16 05:27:02 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/16 05:52:33 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,21 +84,6 @@ int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	}
 	//TEST 4)
 	std::cout << std::endl << "\033[35mTEST 4) "
-		" little BONUS: gradeToSign = 42, gradeToExecute = 1\033[m" \
-		<< std::endl << std::endl;
-	{
-		try
-		{
-			Form Form1("42_form1", 42, 1);
-			std::cout  << Form1;
-		}
-		catch (std::exception const &e)
-		{
-			std::cout << e.what() << std::endl;
-		}
-	}
-	//TEST 5)
-	std::cout << std::endl << "\033[35mTEST 5) "
 		"instanciating Bureaucrat and try to sign form\033[m" \
 		<< std::endl << std::endl;
 	{
@@ -115,8 +100,8 @@ int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 		Guy1.signForm(Form1);
 		std::cout << Form1;
 	}
-	//TEST 6)
-	std::cout << std::endl << "\033[35mTEST 6) "
+	//TEST 5)
+	std::cout << std::endl << "\033[35mTEST 5) "
 		"trying to sign twice the same form\033[m" \
 		<< std::endl << std::endl;
 	{
