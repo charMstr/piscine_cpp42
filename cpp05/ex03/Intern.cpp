@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 10:14:42 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/16 12:28:09 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/16 12:34:53 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,13 @@ Intern::operator=(Intern const &rhs)
 {
 	if (this != &rhs)
 	{
-		;//put code here
+		_knownForms[0] = rhs._knownForms[0];
+		_knownForms[1] = rhs._knownForms[1];
+		_knownForms[2] = rhs._knownForms[2];
+		_funcArray[0] = &Intern::createRobotomyRequestForm;
+		_funcArray[1] = &Intern::createPresidentialPardonForm;
+		_funcArray[2] = &Intern::createShrubberyCreationForm;
+		_nbKnownForms = rhs._nbKnownForms;
 	}
 	return *this;
 }
