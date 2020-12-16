@@ -6,7 +6,7 @@
 #    By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/27 17:46:05 by charmstr          #+#    #+#              #
-#    Updated: 2020/12/16 12:50:28 by charmstr         ###   ########.fr        #
+#    Updated: 2020/12/16 12:50:55 by charmstr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 CXX = clang++
 #HERE
-NAME = day05_ex03.out
+NAME = day05_ex04.out
 IFLAGS = -I $(INCLUDE_PATH_PROJECT)
 LDFLAGS =
 
@@ -60,7 +60,8 @@ HPP_FILES = Bureaucrat\
 			ShrubberyCreationForm\
 			RobotomyRequestForm\
 			PresidentialPardonForm\
-			Intern
+			Intern\
+			OfficeBlock
 			
 
 #HPP_FILES_BONUS =
@@ -85,7 +86,8 @@ SRC_FILES =	main\
 			ShrubberyCreationForm\
 			RobotomyRequestForm\
 			PresidentialPardonForm\
-			Intern
+			Intern\
+			OfficeBlock
 
 	
 #BONUS_FILES =
