@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 02:16:54 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/16 05:26:36 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/16 05:48:16 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,11 @@ void
 Bureaucrat::signForm(Form &form) const
 {
 	if (form.getSigned())
+	{
+		std::cout << getName() << " cant sign "<< form.getName() \
+			<< " anyway because it is already signed." << std::endl;
 		return ;
+	}
 	try
 	{
 		form.beSigned(*this);
