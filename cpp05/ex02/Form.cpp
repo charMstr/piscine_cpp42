@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 04:11:28 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/16 06:16:58 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/16 08:34:35 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,19 @@ Form::operator=(Form const &rhs)
 std::ostream	&
 operator<<(std::ostream &o, Form const &rhs)
 {
-	o << "form " << rhs.getName() << ": "; \
-	if (rhs.getSigned())
+	return rhs.Serialize(o);
+}
+
+std::ostream &
+Form::Serialize(std::ostream &o) const
+{
+	o << "form " << getName() << ": "; \
+	if (getSigned())
 		o << "[SIGNED]";
 	else
 		o << "[NOT SIGNED YET]";
-	o << " (gradeToSign: " << rhs.getGradeToSign() << ", gradeToExecute: "\
-		<< rhs.getGradeToExecute() << ")" << std::endl;
+	o << " (gradeToSign: " << getGradeToSign() << ", gradeToExecute: "\
+		<< getGradeToExecute() << ")";
 	return o;
 }
 
@@ -118,4 +124,16 @@ Form::beSigned(Bureaucrat const &who)
 	if (getGradeToSign() < who.getGrade())
 		throw MyException("Form::GradeTooLowException");
 	_signed = true;
+}
+
+void
+Form::execute(Bureaucrat const &executor) const
+{
+	//try catch are done by the executor, here we only throw!
+	if (!getSigned())
+		throw MyException("Form::NotSignedYetException");
+	if (getGradeToExecute() < executor.getGrade())
+		throw MyException("Bureaucrat::GradeTooLowException");
+	actionOnTarget(); //should send an exception as well if a problem occured
+	return ;
 }
