@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 06:55:00 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/17 18:15:06 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/17 19:02:36 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iomanip>  //for std::setprecision
 #include <math.h> //for std::fmod
 #include <sstream> //for the stringstream.
+#include <limits> //for numeric_limits
 
 Converter::Converter(std::string const &input) :
 	_charPossible(false),
@@ -45,7 +46,6 @@ Converter::Converter(std::string const &input) :
 	// and now we now we have a valid string either an int, a float or a double
 	getType();	//get the type in _type.
 	getPrecision();
-	std::cout << "string at this stage: \"" << _input<< "\"" << std::endl;
 	if (_type == INT)	
 		resolveFromInt();	
 	if (_type == FLOAT)
@@ -350,8 +350,7 @@ Converter::resolveFromDouble(void)
 	if (ss1.fail())
 		return ;
 	_doublePossible = true;
-	if (_l >= static_cast<double>(std::numeric_limits<float>::min()) \
-			&& _l <= static_cast<double>(std::numeric_limits<float>::max()))
+	if (fabs(_l) <= static_cast<double>(std::numeric_limits<float>::max()))
 	{
 		_f = static_cast<float>(_l);
 		_floatPossible = true;
