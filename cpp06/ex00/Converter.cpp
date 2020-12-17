@@ -6,15 +6,16 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 06:55:00 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/17 14:56:10 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/17 18:15:06 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <iostream>
 #include "Converter.hpp"
+
 #include <exception>	//for exception handling
 #include <iomanip>  //for std::setprecision
 #include <math.h> //for std::fmod
+#include <sstream> //for the stringstream.
 
 Converter::Converter(std::string const &input) :
 	_charPossible(false),
@@ -44,6 +45,7 @@ Converter::Converter(std::string const &input) :
 	// and now we now we have a valid string either an int, a float or a double
 	getType();	//get the type in _type.
 	getPrecision();
+	std::cout << "string at this stage: \"" << _input<< "\"" << std::endl;
 	if (_type == INT)	
 		resolveFromInt();	
 	if (_type == FLOAT)
@@ -209,11 +211,11 @@ Converter::resolveFromChar(void)
 	if (_c > 31 && _c < 127)
 		_charDisplayable = true;
 	_intPossible = true;
-	_i = static_cast<int>(_c); //implicit possible here.
+	_i = static_cast<int>(_c); 
 	_doublePossible = true;
-	_l = _c;  //implicit cast here.
+	_l = static_cast<double>(_c);
 	_floatPossible = true;
-	_f = _c; //implicit cast here.
+	_f = static_cast<float>(_c); //implicit cast ok here...
 }
 
 /*
@@ -266,74 +268,70 @@ Converter::getPrecision(void)
 void
 Converter::resolveFromInt(void)
 {
-	try
+	std::stringstream ss1;
+	ss1 << _input;
+	ss1 >> _i;
+	if (ss1.fail()) //to int failed. but we still can try double, then floats.
 	{
-		_i = std::stoi(_input);
-	}
-	catch (std::out_of_range const &e)
-	{
-		//if it cannot fit into a int it might fit into a float.
-		try
-		{
-			_l = std::stod(_input);
-		}
-		catch (std::out_of_range const &e)
-		{
-			return ;
-		}
+		std::stringstream ss2;
+		ss2 << _input;	
+		ss2 >> _l;
+		if (ss2.fail())
+			return ; //no conversion was possible.
 		_doublePossible = true;
-		//then we try to fit it into a float.
-		try
-		{
-			_f = std::stof(_input);
-		}
-		catch (std::out_of_range const &e)
-		{
+		std::stringstream ss3;
+		ss3 << _input;	
+		ss3 >> _f;
+		if (ss3.fail())
 			return ;
-		}
 		_floatPossible = true;
 		return ;
-	}	
+	}
+	//get here if the conversion was ok.
+	_intPossible = true;
+	_l = static_cast<double>(_i); //implicit promotion ok...
+	_doublePossible = true;
+	_f = static_cast<float>(_i); //implicit promotion ok...
+	_floatPossible = true;
 	if (_i >= std::numeric_limits<char>::min() \
 			&& _i <= std::numeric_limits<char>::max())
 	{
 		_charPossible = true;
-		_c = _i;
+		_c = static_cast<char>(_i);
 		if (_i > 31 && _i < 127)
 			_charDisplayable = true;
 	}
-	_intPossible = true;
-	_l = _i; //implicit promotion
-	_doublePossible = true;
-	_f = _i; //implicit promotion
-	_floatPossible = true;
 }
 
 void
 Converter::resolveFromFloat()
 {
-	std::cout << "HERE" << std::endl;
-	try
+	std::stringstream ss1;
+	ss1 << _input;
+	ss1 >> _f;
+	if (ss1.fail()) //if might still fit into a double.
 	{
-		_f = std::stof(_input);
-	}
-	catch (std::out_of_range const &e)
-	{
+		std::stringstream ss2;
+		ss2 << _input;	
+		ss2 >> _l;
+		if (ss2.fail())
+			return ; //no conversion was possible.
+		_doublePossible = true;
 		return ;
 	}
 	_floatPossible = true;
 	_doublePossible = true;
-	_l = _f; //implicit conversion;
-	if (0.0 == fmod(_f, 1.0)) //if _f is an "integer".
+	_l = static_cast<double>(_f);	//implicit conversion would be ok.
+	if (0.0 == fmod(_f, 1.0)) 		//if _f is an "integer".
 	{
-		if (_f >= std::numeric_limits<int>::min() \
-				&& _f <= std::numeric_limits<int>::max())
+		if (_f >= static_cast<float>(std::numeric_limits<int>::min()) \
+				&& _f <= static_cast<float>(std::numeric_limits<int>::max()))
 		{
 			_i = static_cast<int>(_f);
 			_intPossible = true;
 		}
-		if (_f >= std::numeric_limits<char>::min() \
-				&& _f <= std::numeric_limits<char>::max())
+		if (_f >= static_cast<char>(std::numeric_limits<char>::min()) \
+				&& _f <= static_cast<char>(std::numeric_limits<char>::max()))
 		{
 			_charPossible = true;
 			_c = static_cast<char>(_f);
@@ -346,31 +344,28 @@ Converter::resolveFromFloat()
 void
 Converter::resolveFromDouble(void)
 {
-	try
-	{
-		_l = std::stod(_input);
-	}
-	catch (std::out_of_range const &e)
-	{
+	std::stringstream ss1;
+	ss1 << _input;
+	ss1 >> _l;
+	if (ss1.fail())
 		return ;
-	}
 	_doublePossible = true;
-	if (_l >= std::numeric_limits<float>::min() \
-			&& _l <= std::numeric_limits<float>::max())
+	if (_l >= static_cast<double>(std::numeric_limits<float>::min()) \
+			&& _l <= static_cast<double>(std::numeric_limits<float>::max()))
 	{
 		_f = static_cast<float>(_l);
 		_floatPossible = true;
 	}
 	if (0.0 == fmod(_l, 1.0)) //if _l is an "integer".
 	{
-		if (_l >= std::numeric_limits<int>::min() \
-				&& _l <= std::numeric_limits<int>::max())
+		if (_l >= static_cast<double>(std::numeric_limits<int>::min()) \
+				&& _l <= static_cast<double>(std::numeric_limits<int>::max()))
 		{
 			_i = static_cast<int>(_l);
 			_intPossible = true;
 		}
-		if (_l >= std::numeric_limits<char>::min() \
-				&& _l <= std::numeric_limits<char>::max())
+		if (_l >= static_cast<double>(std::numeric_limits<char>::min()) \
+				&& _l <= static_cast<double>(std::numeric_limits<char>::max()))
 		{
 			_c = static_cast<char>(_l);
 			_charPossible = true;
