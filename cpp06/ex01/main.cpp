@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 15:06:37 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/17 16:15:01 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/17 16:32:15 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,8 @@ int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	Data *received= deserialize(ptr);	
 
 	ShowDeserialized(received);
+
+	delete reinterpret_cast<t_MyData*>(ptr);
+	delete received;
 	return (0);
 }
