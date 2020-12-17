@@ -6,7 +6,7 @@
 #    By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/27 17:46:05 by charmstr          #+#    #+#              #
-#    Updated: 2020/12/17 15:06:21 by charmstr         ###   ########.fr        #
+#    Updated: 2020/12/17 18:45:55 by charmstr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -124,6 +124,5 @@ fclean: clean
 	@rm -rf $(NAME)
 	@echo "\t\t$(REMOVE_FG)deleting $(NAME_BG)$(BLACK_FG) compile_commands.json $(BLACK_BG)$(REMOVE_FG)...$(CLEAR_COLOR)"
 	@rm -f compile_commands.json
-	rm -rf maison_shrubbery
 
 re: fclean all
