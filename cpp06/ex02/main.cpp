@@ -6,12 +6,13 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 16:24:33 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/17 16:55:38 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/17 17:03:01 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <exception>
 #include <ctime>
+#include <stdlib.h>
 #include <unistd.h>
 #include <iostream>
 

@@ -6,12 +6,13 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 15:06:37 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/17 16:32:15 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/17 17:01:55 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <ctime>
+#include <stdlib.h>
 #include <unistd.h>
 
 struct Data { std::string s1; int n; std::string s2; };
