@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 08:03:45 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/18 10:00:10 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/18 10:08:35 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,6 +131,23 @@ int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 		res = max<Dummy>(j, i);
 		std::cout << "AFTER MAX:" << std::endl;
 		std::cout << "res (class Dummy): " << res;
+	}
+
+	std::cout << std::endl << "\033[35m********************** PROVIDED TESTS" \
+		" ************\033[m" << std::endl;
+	{
+		int a = 2;
+		int b = 3;
+		::swap( a, b );
+		std::cout << "a = " << a << ", b = " << b << std::endl;
+		std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+		std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+		std::string c = "chaine1";
+		std::string d = "chaine2";
+		::swap(c, d);
+		std::cout << "c = " << c << ", d = " << d << std::endl;
+		std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+		std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	}
 	return (0);
 }
