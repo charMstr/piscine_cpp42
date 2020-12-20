@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 13:32:17 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/20 18:43:32 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/20 23:49:30 by charmstr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 {
 	std::cout << std::endl << "\033[35m************************* MY TESTS" \
-		" ON EASYFIND *******" << std::endl;
+		" ON SPAN *******" << std::endl;
 	
 	//TEST 1)
 	std::cout << std::endl << "\033[35mTEST 1) "
