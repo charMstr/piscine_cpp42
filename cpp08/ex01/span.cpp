@@ -6,7 +6,7 @@
 /*   By: charmstr <charmstr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/20 13:34:04 by charmstr          #+#    #+#             */
-/*   Updated: 2020/12/20 18:42:17 by charmstr         ###   ########.fr       */
+/*   Updated: 2020/12/21 10:06:26 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <vector>
 #include <algorithm>
 #include <numeric>
+#include <sstream>
 
 Span::Span(unsigned int N) :
 	N(N),
@@ -56,9 +57,9 @@ Span::addNumber(int i)
 {
 	if (_total_entries == N)	
 	{
-		std::string error_msg("Span: already N elements, cant add: ");
-		error_msg += std::to_string(i);
-		throw std::out_of_range(error_msg);
+		std::ostringstream oss;
+		oss << "Span: already N elements, cant add: " << i;
+		throw std::out_of_range(oss.str());
 	}
 	_total_entries++;
 	_set_of_ints.insert(i);
